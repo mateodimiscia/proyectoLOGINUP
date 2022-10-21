@@ -35,8 +35,19 @@ export class SignupComponent implements OnInit {
       });
       return;
     }
-
-    this.userService.añadirUsuario(this.user).subscribe( // Alta del usuario.
+//añade al usuario ingresado dentro del formulario de registro y se suscribe.
+    this.userService.añadirUsuario(this.user).subscribe(
+      /*
+      ¿Para qué nos sirve la suscripción?
+      El Observable representa un flujo de datos,
+      una colección de eventos que se pueden emitir en algún momento futuro
+      y el Observer son objetos que están escuchando el flujo de datos y actúan
+      sobre los valores que éste emite.
+      Entonces, la Suscripción representa la ejecución de un observable
+       y también sirve para cancelar la ejecución en un momento dado.
+       Entonces: va al api rest y nos retorna un observable. Siendo un observer, necesitamos suscribirnos a ese observable.
+       Y a partir de ahí visualiza el mensaje correspondiente a si se guardó con éxito o si ocurrió un error.
+      */
       (data) => {
         console.log(data);
         //se utiliza sweetalert2 para mostrar el logueo con exito. En vez de un alert se usa ventaqna emergente de swa2
