@@ -1,0 +1,56 @@
+<h1>Bienvenido al panel de administrador</h1>
+<!-->
+  SE UTILIZA LA INTERFAZ EXTENDIDA Y SE MUESTRA EN EL APARTADO DE USUARIOS UNA TABLA CON LOS DATOS REGISTRADOS
+<!-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css"> <!-->importacion de estilo de tabla obtenida de boostrap <!-->
+    <table class="table table-dark">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Email</th>
+          <th>Teléfono</th>
+          <th>Username</th>
+          <th>Estado de usuario</th>
+          <th>Contraseña</th>
+        </tr>
+
+    <!-->
+      SE INTERPOLAN LAS VARIABLES QUE CONTIENEN LOS REGISTROS EN LA BASE DE DATOS
+    <!-->
+
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of usuarios">
+          <td>{{user.id}}</td>
+          <td>{{user.nombre}}</td>
+          <td>{{user.apellido}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.telefono}}</td>
+          <td>{{user.username}}</td>
+          <td>{{user.habil}}
+            <form action="../../form-result.php" target="_blank">
+
+    <!-->
+      FORMULARIO PARA CAMBIAR EL ESTADO DEL USUARIO
+    <!-->
+            <p>
+
+              <select>
+
+                <option>Habilitar</option>
+
+                <option>Deshabilitar</option>
+
+              </select>
+
+            </p>
+
+            <p><input type="submit" value="Guardar"></p>
+
+          </form></td>
+          <td>{{user.password}}</td>
+        </tr>
+      </tbody>
+    </table>
