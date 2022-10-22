@@ -51,8 +51,11 @@ private BCryptPasswordEncoder bCryptPasswordEncoder;
 			Set<UsuarioRol> usuariosRoles = new HashSet<>();
 			UsuarioRol usuarioRol = new UsuarioRol();
 			usuarioRol.setRol(rol);
-			usuarioRol.setUsuario(usuario);
-			usuariosRoles.add(usuarioRol);
+			usuarioRol.setUsuario(usuario);//se establece el objeto rol y usuario
+			usuariosRoles.add(usuarioRol);//UsuarioRoles es un conjunto de los dos objetos
+			/*
+			 * 
+			 */
 			Usuario usuarioGuardado = usuarioService.guardarUsuario(usuario,usuariosRoles);
 			System.out.println(usuarioGuardado.getUsername());
 			

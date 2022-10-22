@@ -81,17 +81,25 @@ public class Usuario implements UserDetails {
         this.telefono = telefono;
         this.enabled = enabled;
     }
-
+/*
+ * Indica si la cuenta si la cuenta del usuario expiró.
+ * De ser así no puede ser autenticada
+ */
     @Override
     public boolean isAccountNonExpired() {
         return true;
     }
-
+/*
+ * Indica si el usuario fue bloqueado o desbloqueado.
+ * Si el usuario es bloqueado no puede ser autenticado.
+ */
     @Override
     public boolean isAccountNonLocked() {
         return true;
     }
-
+/*
+ * Indica si las credenciales expiraron. De ser así no pueden identificarse.
+ */
     @Override
     public boolean isCredentialsNonExpired() {
         return true;
@@ -101,11 +109,18 @@ public class Usuario implements UserDetails {
      * LA ANOTACIÓN OVERRIDE SOBREESCRIBE MÉTODOS E INTERFACES IMPLEMENTADAS.
      */
     @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
+    /*
+     * Clase que implementa para que pueda sobreescribir métodos tales como
+     * el de obtener autridad par pasarle el campo autority
+     */
+    public Collection<? extends GrantedAuthority> getAuthorities() {//método que obtiene los roles
         Set<Authority> autoridades = new HashSet<>();
+        //bucle for each
         this.usuarioRoles.forEach(usuarioRol -> {
+            //se recorre la tabla de UsuarioRoles, obtener su nombre y retornarlos
             autoridades.add(new Authority(usuarioRol.getRol().getRolNombre()));
         });
+        //se retorna la autoridad
         return autoridades;
     }
 }

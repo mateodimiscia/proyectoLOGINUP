@@ -1,7 +1,7 @@
 package com.sistema.examenes.modelo;
 import lombok.Setter;
 import lombok.Getter;
-
+//Constructor que contiene el token, que es retornado.
 public class JwtResponse {
     @Getter
     @Setter
