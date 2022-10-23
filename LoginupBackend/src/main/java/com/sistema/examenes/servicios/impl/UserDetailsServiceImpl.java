@@ -13,13 +13,17 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
     private UsuarioRepository usuarioRepository;
-    //busca si el usuario existe o no
+
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    //permite la busqueda de un usuario por su username
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {//
+     //se crea objeto usuario, se le pasa el username y lo busca
         Usuario usuario = this.usuarioRepository.findByUsername(username);
+        //si el usuario es nulo es porque no existe, entonces se pasa la excepcion junto con un mensaje de usuario no encontrado.
         if(usuario == null){
             throw new UsernameNotFoundException("Usuario no encontrado");
         }
+        //en caso de encontrarlo retorna el usuario
         return usuario;
     }
 

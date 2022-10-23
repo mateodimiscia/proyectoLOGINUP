@@ -13,8 +13,15 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-
+/*
+ * ¿DE QUÉ SE TRATA UN FILTRO?
+ * Intercepta todas las invocaciones al sevidor y comprueba la existemcia del token,
+ * lo descencripta y valida ese token.
+ * Verifica, configura y autoriza las diferentes peticiones si es válido el token.
+ */
+//se registra el filtro como un componente de spring
 @Component
+//ereda de una clase y esta clase nos provee un método(OncePerRequestFilter), que va a tener el filtro.
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     @Autowired

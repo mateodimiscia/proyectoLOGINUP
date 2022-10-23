@@ -16,9 +16,19 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 //import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 //SE ENCARGA DE ENCRIPTAR LAS CONTRASEÑAS DE LOS USUARIOS
+//PERMITE ESPECIFICAR LA CONFIGURACION DEL ACCESO A LOS RECURSOS.
 @EnableWebSecurity
+//UNA CLASE DE CONFIGURACION REGISTRA BEANS
 @Configuration
+/*habilita la seguridad de nivel de método de Spring.
+Esta anotación nos proporciona tres mecanismos diferentes, 
+prePostEnabled, secureEnabled y jsr250Enabled, para lograr la misma función.
+*/
 @EnableGlobalMethodSecurity(prePostEnabled = true)
+/*
+ * @PreAuthorize se validará antes de que se ejecute el método
+ * y la anotación @PostAuthorize se validará después de que se ejecute el método.
+ */
 public class MySecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired

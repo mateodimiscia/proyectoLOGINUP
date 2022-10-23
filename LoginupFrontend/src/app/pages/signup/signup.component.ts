@@ -66,11 +66,7 @@ export class SignupComponent implements OnInit {
 
 
 
-        Swal.fire(
-          'Cambio guardado',
-          '',
-          'success'
-        )
+
       }
     )
   }
