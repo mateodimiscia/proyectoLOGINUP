@@ -21,10 +21,12 @@ export class LoginComponent implements OnInit {
   }
 
   //Las acciones que se ejecutan al darle el boton de Iniciar Sesión
-
   formSubmit(){
+    //En caso de que el campo username esté vacío o nulo
     if(this.loginData.username.trim() == '' || this.loginData.username.trim() == null){
+      //Mensaje de error snackbar
       this.snack.open('El nombre de usuario es requerido','Aceptar',{
+        //Con una duración de 3 segundos.
         duration:3000
       })
       return;

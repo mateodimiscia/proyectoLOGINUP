@@ -15,6 +15,10 @@
           <form (ngSubmit) = "formSubmit()">
             <mat-form-field class = "full-width"  appearance = "outline">
               <mat-label>Nombre de usuario</mat-label>
+                  <!-->
+                    NGMODEL: esta directiva nos permite tener un enlace unidireccional
+                     entre una propiedad de nuestra clase con el valor que se muestra un control de formulario HTML de tipo input, textarea etc.
+                        <!-->
               <input [(ngModel)] = "loginData.username" name = "username" required  matInput placeholder="Digite su nombre de usuario">
               <mat-hint>El nombre de usuario debe ser valido</mat-hint>
             </mat-form-field>

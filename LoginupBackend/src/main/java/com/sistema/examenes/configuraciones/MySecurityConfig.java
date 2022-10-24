@@ -15,6 +15,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 //import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 //import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+
 //SE ENCARGA DE ENCRIPTAR LAS CONTRASEÑAS DE LOS USUARIOS
 //PERMITE ESPECIFICAR LA CONFIGURACION DEL ACCESO A LOS RECURSOS.
 @EnableWebSecurity
@@ -42,7 +44,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     @Bean
-    public AuthenticationManager authenticationManagerBean() throws Exception {
+    public AuthenticationManager authenticationManagerBean() throws Exception {//
         return super.authenticationManagerBean();
     }
     /* 
@@ -52,10 +54,11 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
         return NoOpPasswordEncoder.getInstance();
     }
     */
+    
     //a la hora de guardar un usuario se encripta esa contraseña
     @Bean
     public BCryptPasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder();
+        return new BCryptPasswordEncoder();//se le pasa la password codificada
     }
 
     @Override
@@ -71,14 +74,21 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
                 .cors()
                 .disable()
                 .authorizeRequests()
-                .antMatchers("/generate-token","/usuarios/").permitAll()
+                .antMatchers("/generate-token","/usuarios/").permitAll()//a estas rutas se les permite
                 .antMatchers(HttpMethod.OPTIONS).permitAll()
+                /*
+                 * Método OTPTIONS: describe opciones de comunicacion para recursos del destino.
+                 * Es muy utilizado con CORS para validar si el servidor acepta peticiones de diferentes orígenes.
+                 */
                 .anyRequest().authenticated()
                 .and()
-                .exceptionHandling().authenticationEntryPoint(unauthorizedHandler)
+                .exceptionHandling().authenticationEntryPoint(unauthorizedHandler)/*
+                si hay un error, le inyectamos el entry point para que llame al método.
+                 */ 
                 .and()
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);//
 
         http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+        //se le agrega un filtro antes (before) que se encarga de validar el token en resmidas cuentas.
     }
 }
