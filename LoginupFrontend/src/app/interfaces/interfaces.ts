@@ -11,7 +11,7 @@ export class usuario{
  email:string;
   telefono:number;
  enabled:boolean;
- habil:string;
+ estadoUser:string;
 }
 
 

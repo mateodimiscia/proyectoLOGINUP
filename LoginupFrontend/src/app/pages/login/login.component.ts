@@ -42,9 +42,12 @@ export class LoginComponent implements OnInit {
     this.loginService.generateToken(this.loginData).subscribe( //Da el alta al usuario
       (data:any) => {
         console.log(data);
+        //loginuser establece en el localstorage el token por eso le pasamos el token que estamos obteniendo
         this.loginService.loginUser(data.token);
+        //vamos a obtener el actual usuario que está iniciado y se le pasa el user de tipo any
         this.loginService.getCurrentUser().subscribe((user:any) => {
           this.loginService.setUser(user);
+          //se imprime el usuario por consola
           console.log(user);
 
           //Las distintas funciones de los roles
@@ -64,8 +67,8 @@ export class LoginComponent implements OnInit {
         })
       },(error) => {
         console.log(error);
-        this.snack.open('Detalles inválidos , vuelva a intentar !!','Aceptar',{ // No coinciden los datos ingresados con los registrados
-          duration:3000
+        this.snack.open('Detalles inválidos, vuelva a intentar','Aceptar',{ // No coinciden los datos ingresados con los registrados
+          duration:3000//duración de 3 segundos
         })
       }
     )

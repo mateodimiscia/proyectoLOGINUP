@@ -18,10 +18,11 @@ una ruta y determinan si se puede cargar dicha ruta o no
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+      //si esta conectado el usuario y es admin retorna true
     if(this.loginService.isLoggedIn() && this.loginService.getUserRole() == 'ADMIN'){
       return true;
     }
-
+//en caso de ser falso redirecciona al login
     this.router.navigate(['login']);
     return false;
   }

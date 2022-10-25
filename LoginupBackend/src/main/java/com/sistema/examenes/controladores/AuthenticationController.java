@@ -54,6 +54,7 @@ public class AuthenticationController {
         //con ese token podemos ir a cualquier ruta teniendo permisos
         return ResponseEntity.ok(new JwtResponse(token));
     }
+
     private void autenticar(String username,String password) throws Exception {
         try{
             //se pasa un username y contraseña 
@@ -65,8 +66,11 @@ public class AuthenticationController {
             throw  new Exception("Credenciales invalidas " + e.getMessage());
         }
     }
+
+//devuelve al actual usuario que acaba de iniciar sesion 
     @GetMapping("/actual-usuario")
     public Usuario obtenerUsuarioActual(Principal principal){
+        //se retorna el actual usuario
         return (Usuario) this.userDetailsService.loadUserByUsername(principal.getName());
     }
 }

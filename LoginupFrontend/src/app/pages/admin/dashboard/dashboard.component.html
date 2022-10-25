@@ -3,7 +3,7 @@
   SE UTILIZA LA INTERFAZ EXTENDIDA Y SE MUESTRA EN EL APARTADO DE USUARIOS UNA TABLA CON LOS DATOS REGISTRADOS
 <!-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css"> <!-->importacion de estilo de tabla obtenida de boostrap <!-->
-    <table class="table table-dark">
+    <table class="table table-dark" onsubmit()="modificarEstado()">
       <thead>
         <tr>
           <th>ID</th>
@@ -29,7 +29,7 @@
           <td>{{user.email}}</td>
           <td>{{user.telefono}}</td>
           <td>{{user.username}}</td>
-          <td>{{user.habil}}
+          <td>{{user.estadoUser}}
             <form action="../../form-result.php" target="_blank">
 
     <!-->

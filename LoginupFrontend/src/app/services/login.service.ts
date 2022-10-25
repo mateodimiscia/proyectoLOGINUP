@@ -22,16 +22,20 @@ export class LoginService {
     return this.http.get(`${baserUrl}/actual-usuario`);
   }
 
-  //iniciamos sesión y establecemos el token en el localStorage
+  //iniciamos sesión y establecemos el token en el localStorage que se almacene cierto tiempo que es cuando caduca el token
   public loginUser(token:any){
     localStorage.setItem('token',token);
     return true;
   }
 
+  //sirve para comprobar si estoy conectado o no en la cuenta
   public isLoggedIn(){
+    //se crea variable  tokenStr
     let tokenStr = localStorage.getItem('token');
+    //si ese token no está definido o es vacío/nulo se retorna false, es decir no está coectado
     if(tokenStr == undefined || tokenStr == '' || tokenStr == null){
       return false;
+      //de lo contrario está iniciado. Sigue el token en el localStorage
     }else{
       return true;
     }
@@ -39,7 +43,9 @@ export class LoginService {
 
   //cerramos sesion y eliminamos el token del localStorage
   public logout(){
+    //el elemento que esté guardado como token será removido
     localStorage.removeItem('token');
+    //otro elemento en el localStorage es el usuario
     localStorage.removeItem('user');
     return true;
   }
@@ -49,10 +55,12 @@ export class LoginService {
     return localStorage.getItem('token');
   }
 //se obtiene el objeto usuario del localstorage
+//se establece el usuario
   public setUser(user:any){
+    //stringify convierte un valor de javascript a json
     localStorage.setItem('user', JSON.stringify(user));
   }
-//si ese usuario es difewrente o nulo se retorna, de lo contrario se cierra sesion y retorna un null
+//si ese usuario es diferente o nulo se retorna, de lo contrario se cierra sesion y retorna un null (que no existe el usuario)
   public getUser(){
     let userStr = localStorage.getItem('user');
     if(userStr != null){
@@ -62,9 +70,10 @@ export class LoginService {
       return null;
     }
   }
-//del usuario se retorna el rol correspondiente
+//del usuario se retorna el rol o roles correspondientes
   public getUserRole(){
     let user = this.getUser();
+    //se retorna la autoridad
     return user.authorities[0].authority;
   }
 

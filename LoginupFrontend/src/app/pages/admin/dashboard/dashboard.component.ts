@@ -24,10 +24,10 @@ export class DashboardComponent implements OnInit {
       for(let i = 0 ;i<dato.length;i++){
         if (this.usuarios[i].enabled == true ){
 
-          this.usuarios[i].habil = "Habilitado";
+          this.usuarios[i].estadoUser = "Habilitado";
 
         }else{
-          this.usuarios[i].habil = "Deshabilitado";
+          this.usuarios[i].estadoUser = "Deshabilitado";
         }
         console.log(this.usuarios[i]);
       }

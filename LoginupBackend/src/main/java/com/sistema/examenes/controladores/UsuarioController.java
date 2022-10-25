@@ -21,7 +21,7 @@ public class UsuarioController {
 
     //se aplica el patron de inyección de dependencias
     @Autowired
-    //ya inyectado, crea la instancia 
+    //ya inyectado, crea la instancia del encriptado de password
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
 
