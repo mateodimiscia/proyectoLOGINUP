@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { usuario } from 'src/app/interfaces/interfaces';
 import { UserService } from 'src/app/services/user.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -17,7 +18,8 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.obtenerusuarios();
   }
-
+//recorre el array de los usuarios y mediante un condicional verifica si el estado.
+//si el estado es Habilitado, indica un input para realizar la acción contraria.
   private obtenerusuarios(){
     this.UserServices.obtenerusuarios().subscribe((dato)=>{
       this.usuarios=dato;
@@ -29,7 +31,6 @@ export class DashboardComponent implements OnInit {
         }else{
           this.usuarios[i].estadoUser = "Deshabilitado";
         }
-        console.log(this.usuarios[i]);
       }
     })
   }
@@ -43,7 +44,14 @@ export class DashboardComponent implements OnInit {
 
 
     this.UserServices.modificarDato(iduser,habil).subscribe();
-    alert("Se ha "+habil+ " su usuario correctamente")
+    //muestra un pop-up que indica los cambios de la habilitacion/deshabilitacion del usuario
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Se ha ' +habil+ ' su usuario correctamente',
+      showConfirmButton: false,
+      timer: 1500
+    })
   };
 
 }

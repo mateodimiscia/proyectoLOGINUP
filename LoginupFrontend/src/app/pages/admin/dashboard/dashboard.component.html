@@ -22,14 +22,14 @@
 
       </thead>
       <tbody>
-        <tr *ngFor="let pija of usuarios">
-          <td>{{pija.id}}</td>
-          <td>{{pija.nombre}}</td>
-          <td>{{pija.apellido}}</td>
-          <td>{{pija.email}}</td>
-          <td>{{pija.telefono}}</td>
-          <td>{{pija.username}}</td>
-          <td>{{pija.estadoUser}}
+        <tr *ngFor="let user of usuarios">
+          <td>{{user.id}}</td>
+          <td>{{user.nombre}}</td>
+          <td>{{user.apellido}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.telefono}}</td>
+          <td>{{user.username}}</td>
+          <td>{{user.estadoUser}}
             <form action="../../form-result.php" target="_blank">
 
     <!-->
@@ -39,18 +39,18 @@
 
               <select>
 
-                <option *ngIf="pija.estadoUser == 'Habilitado'">Deshabilitar</option>
+                <option *ngIf="user.estadoUser == 'Habilitado'">Deshabilitar</option>
 
-                <option *ngIf="pija.estadoUser == 'Deshabilitado'">Habilitar</option>
+                <option *ngIf="user.estadoUser == 'Deshabilitado'">Habilitar</option>
 
               </select>
 
             </p>
 
-            <p><input type="submit" value="Guardar" (click)="modificarEstado(pija.id,pija.estadoUser)"></p>
+            <p><input type="submit" value="Guardar" (click)="modificarEstado(user.id,user.estadoUser)"></p>
 
           </form></td>
-          <td>{{pija.password}}</td>
+          <td>{{user.password}}</td>
         </tr>
       </tbody>
     </table>

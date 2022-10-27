@@ -52,11 +52,13 @@ EJEMPLO: pasar por Postman metodo get con la siguiente ruta: http://localhost:80
     public Usuario obtenerUsuario(@PathVariable("username") String username){
         return usuarioService.obtenerUsuario(username);
     }
+
 //eliminar usuarios *NO UTILIZADA, sino que se va a utlizar una eliminación lógica de usuarios que es inhabilitación de los mismos*
-    @DeleteMapping("/{usuarioId}")
+   /*  @DeleteMapping("/{usuarioId}")
     public void eliminarUsuario(@PathVariable("usuarioId") Long usuarioId){
         usuarioService.eliminarUsuario(usuarioId);
     }
+    */
 
  @GetMapping("/todos")
     public List<Usuario> obtenerUsuarios(){
@@ -64,6 +66,7 @@ EJEMPLO: pasar por Postman metodo get con la siguiente ruta: http://localhost:80
         //muestra la totalidad de usuarios existentes en la base de datos
     }
 
+    //modifica mediate el id de cada usuario el estado, puede habilitarlos o deshabilitarlos.
     @GetMapping("/modificado/{usuarioId}")
     public Usuario ModificarUsuario(@PathVariable("usuarioId") Long usuarioId){
         
