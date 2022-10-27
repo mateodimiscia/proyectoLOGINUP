@@ -63,6 +63,7 @@ public class UsuarioServiceImpl implements UsuarioService {
             }else{
                 usuarioRepository.findById(usuarioId).get().setEnabled(true);
             }
+            //guarda el estado modificado del usuario u lo retorna
             usuarioRepository.save(usuarioRepository.findById(usuarioId).get());
         return usuarioRepository.findById(usuarioId).get();
     }
