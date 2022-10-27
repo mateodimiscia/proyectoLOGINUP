@@ -32,8 +32,19 @@ export class DashboardComponent implements OnInit {
         console.log(this.usuarios[i]);
       }
     })
-
-
-
   }
+
+  modificarEstado(iduser:any,habil:string){
+    if(habil == "Habilitado"){
+      habil = "Deshabilitado";
+    }else{
+      habil = "Habilitado";
+    }
+
+
+    this.UserServices.modificarDato(iduser,habil).subscribe();
+    alert("Se ha "+habil+ " su usuario correctamente")
+  };
+
 }
+

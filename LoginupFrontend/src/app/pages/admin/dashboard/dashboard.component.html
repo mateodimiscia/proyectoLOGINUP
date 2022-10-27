@@ -3,7 +3,7 @@
   SE UTILIZA LA INTERFAZ EXTENDIDA Y SE MUESTRA EN EL APARTADO DE USUARIOS UNA TABLA CON LOS DATOS REGISTRADOS
 <!-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css"> <!-->importacion de estilo de tabla obtenida de boostrap <!-->
-    <table class="table table-dark" onsubmit()="modificarEstado()">
+    <table class="table table-dark">
       <thead>
         <tr>
           <th>ID</th>
@@ -22,14 +22,14 @@
 
       </thead>
       <tbody>
-        <tr *ngFor="let user of usuarios">
-          <td>{{user.id}}</td>
-          <td>{{user.nombre}}</td>
-          <td>{{user.apellido}}</td>
-          <td>{{user.email}}</td>
-          <td>{{user.telefono}}</td>
-          <td>{{user.username}}</td>
-          <td>{{user.estadoUser}}
+        <tr *ngFor="let pija of usuarios">
+          <td>{{pija.id}}</td>
+          <td>{{pija.nombre}}</td>
+          <td>{{pija.apellido}}</td>
+          <td>{{pija.email}}</td>
+          <td>{{pija.telefono}}</td>
+          <td>{{pija.username}}</td>
+          <td>{{pija.estadoUser}}
             <form action="../../form-result.php" target="_blank">
 
     <!-->
@@ -39,18 +39,18 @@
 
               <select>
 
-                <option>Habilitar</option>
+                <option *ngIf="pija.estadoUser == 'Habilitado'">Deshabilitar</option>
 
-                <option>Deshabilitar</option>
+                <option *ngIf="pija.estadoUser == 'Deshabilitado'">Habilitar</option>
 
               </select>
 
             </p>
 
-            <p><input type="submit" value="Guardar"></p>
+            <p><input type="submit" value="Guardar" (click)="modificarEstado(pija.id,pija.estadoUser)"></p>
 
           </form></td>
-          <td>{{user.password}}</td>
+          <td>{{pija.password}}</td>
         </tr>
       </tbody>
     </table>

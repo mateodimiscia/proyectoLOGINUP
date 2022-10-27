@@ -26,4 +26,8 @@ export class UserService {
     public obtenerdatosUsuario(user:any):Observable<usuario> {
       return this.httpClient.get<usuario>(`${baserUrl}/usuarios/${user}`);
     }
+    //Modifico los datos del usuario a deshabilitado
+    public modificarDato(id:number,habil:string){
+      return this.httpClient.get(`${baserUrl}/usuarios/modificado/${id}`)
+    }
 }

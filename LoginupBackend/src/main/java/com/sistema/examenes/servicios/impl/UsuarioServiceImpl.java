@@ -53,4 +53,17 @@ public class UsuarioServiceImpl implements UsuarioService {
       
         return (List<Usuario>) usuarioRepository.findAll();
 
-}}
+    }
+
+    @Override
+    public Usuario modificarUsuario(Long usuarioId) {
+      
+            if(usuarioRepository.findById(usuarioId).get().isEnabled()){
+                usuarioRepository.findById(usuarioId).get().setEnabled(false);
+            }else{
+                usuarioRepository.findById(usuarioId).get().setEnabled(true);
+            }
+            usuarioRepository.save(usuarioRepository.findById(usuarioId).get());
+        return usuarioRepository.findById(usuarioId).get();
+    }
+}

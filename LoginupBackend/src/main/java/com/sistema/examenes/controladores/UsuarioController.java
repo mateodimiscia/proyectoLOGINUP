@@ -63,4 +63,10 @@ EJEMPLO: pasar por Postman metodo get con la siguiente ruta: http://localhost:80
         return usuarioService.obtenerUsuarios();
         //muestra la totalidad de usuarios existentes en la base de datos
     }
+
+    @GetMapping("/modificado/{usuarioId}")
+    public Usuario ModificarUsuario(@PathVariable("usuarioId") Long usuarioId){
+        
+        return usuarioService.modificarUsuario(usuarioId);
+    }
 }

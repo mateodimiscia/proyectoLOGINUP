@@ -14,4 +14,6 @@ public interface UsuarioService {
     public void eliminarUsuario(Long usuarioId);
 
     public List<Usuario> obtenerUsuarios();
+
+    public Usuario modificarUsuario(Long usuarioID);
 }
