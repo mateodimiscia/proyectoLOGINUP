@@ -21,7 +21,7 @@ import java.io.IOException;
  */
 //se registra el filtro como un componente de spring
 @Component
-//ereda de una clase y esta clase nos provee un método(OncePerRequestFilter), que va a tener el filtro.
+//hereda de una clase y esta clase nos provee un método(OncePerRequestFilter), que va a tener el filtro.
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     @Autowired

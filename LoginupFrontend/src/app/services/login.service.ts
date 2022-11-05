@@ -15,6 +15,7 @@ export class LoginService {
   //generamos el token
   //realiza peticion post con los datos del usuario para generar el token
   public generateToken(loginData:any){
+    //simbolo $ valida una variable
     return this.http.post(`${baserUrl}/generate-token`,loginData);
   }
 

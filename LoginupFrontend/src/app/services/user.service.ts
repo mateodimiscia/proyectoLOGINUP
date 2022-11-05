@@ -12,7 +12,7 @@ import { usuario } from '../interfaces/interfaces';
 })
 export class UserService {
 
-
+//se crea un objeto de la clase HttpClient para conectar el front con el back
     constructor(private httpClient: HttpClient) { }
 
     //se pasa un usuario de tipo any y se esta retornando a la url
@@ -26,9 +26,9 @@ export class UserService {
     public obtenerdatosUsuario(user:any):Observable<usuario> {
       return this.httpClient.get<usuario>(`${baserUrl}/usuarios/${user}`);
     }
-    //Modifico los datos del usuario a deshabilitado
+    //Modifico el estado del usuario a deshabilitado
     public modificarDato(id:number,habil:string){
-      return this.httpClient.get(`${baserUrl}/usuarios/modificado/${id}`)
+      return this.httpClient.put(`${baserUrl}/usuarios/modificado/${id}`,null)
 
     }
 }
