@@ -11,6 +11,13 @@
             Formulario de angular material de inicio de sesión
           <!-->
 
+            <!-->
+            Submit: es un formulario HTML predeterminado para enviar un evento, nombrará la técnica subyacente cuando se envíe la forma.
+            ngSubmit: es el enlace de host ubicado en el elemento de forma. Básicamente, evita el evento de envío predeterminado del navegador 
+              (que puede ser un post) con la ayuda de devolver falso. Eventualmente, puede evitar las llamadas PostBack comunes o la recarga de
+              la página web debido a la carga de la forma. De esta manera, puede validar su formulario y enviarlo al servidor mediante la guía 
+              ajax del código del componente.
+          <!-->
           <h1 class = "text-center">Inicio de sesión</h1>
           <form (ngSubmit) = "formSubmit()">
             <mat-form-field class = "full-width"  appearance = "outline">
