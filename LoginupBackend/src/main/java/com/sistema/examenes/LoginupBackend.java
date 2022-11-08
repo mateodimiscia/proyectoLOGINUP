@@ -53,13 +53,10 @@ private BCryptPasswordEncoder bCryptPasswordEncoder;
 			usuarioRol.setRol(rol);
 			usuarioRol.setUsuario(usuario);//se establece el objeto rol y usuario
 			usuariosRoles.add(usuarioRol);//UsuarioRoles es un conjunto de los dos objetos
-			/*
-			 * 
-			 */
+			
 			Usuario usuarioGuardado = usuarioService.guardarUsuario(usuario,usuariosRoles);
 			System.out.println(usuarioGuardado.getUsername());
 			
-				
 			} catch (UsuarioFoundException exception) {
 				exception.printStackTrace();
 				//lanzara excepcion si el usuario ya existe en la bd

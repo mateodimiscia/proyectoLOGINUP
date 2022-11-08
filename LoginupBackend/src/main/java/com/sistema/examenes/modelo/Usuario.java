@@ -11,7 +11,7 @@ import java.util.Set;
 
 //Entity sirve para que sea una entidad y se mapee con la base de datos
 @Entity
-// table es ara indicarle el nombre de la tabla a la base de datos
+//table es para indicarle el nombre de la tabla a la base de datos
 @Table(name = "usuarios")
 /*
  * SE IMPLEMENTA LA INTERFAZ USERDETAILS
@@ -61,15 +61,14 @@ public class Usuario implements UserDetails {
      * mappedBy apunta a la entidad propietaria de la relación. En este caso es
      * usuario.
      */
-    @JsonIgnore // EVITA OBTENER INFINIDAD DE DATOS SIN REPETIRSE. SE UTILIZA EN LOS METODOS GET PARA EVITAR CONFLICTOS.
+    @JsonIgnore // EVITA OBTENER INFINIDAD DE DATOS SIN REPETIRSE. 
     @Getter
     @Setter
     private Set<UsuarioRol> usuarioRoles = new HashSet<>();
 
     public Usuario() {
-
     }
-//Variables que se extienden a la interfaz interfaces.ts que toma y muestra los datos registrados en el frontend
+//Variables que se extienden a la clase interfaces.ts que toma y muestra los datos registrados en el frontend
     public Usuario(Long id, String username, String password, String nombre, String apellido, String email,
             String telefono, boolean enabled) {
         this.id = id;

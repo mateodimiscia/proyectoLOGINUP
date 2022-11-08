@@ -1,10 +1,10 @@
-package com.sistema.examenes;
+package com.sistema.loginup;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SistemaExamenesBackendApplicationTests {
+class LoginupBackendApplicationTests {
 
 	@Test
 	void contextLoads() {

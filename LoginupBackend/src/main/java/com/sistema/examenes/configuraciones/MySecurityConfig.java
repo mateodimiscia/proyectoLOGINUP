@@ -29,6 +29,7 @@ prePostEnabled, secureEnabled y jsr250Enabled, para lograr la misma función.
  * @PreAuthorize se validará antes de que se ejecute el método
  * y la anotación @PostAuthorize se validará después de que se ejecute el método.
  */
+
 public class MySecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
@@ -56,7 +57,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
     //a la hora de guardar un usuario se encripta esa contraseña
     @Bean
     public BCryptPasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder();//se le pasa la password codificada
+        return new BCryptPasswordEncoder();//se retorna la password codificada
     }
 
     @Override

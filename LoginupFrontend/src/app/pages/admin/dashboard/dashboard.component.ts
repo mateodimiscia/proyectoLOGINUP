@@ -18,7 +18,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.obtenerusuarios();
   }
-//recorre el array de los usuarios y mediante un condicional verifica si el estado.
+//recorre el array de los usuarios y mediante un condicional verifica el estado.
 //si el estado es Habilitado, indica un input para realizar la acción contraria.
   private obtenerusuarios(){
     this.UserServices.obtenerusuarios().subscribe((dato)=>{

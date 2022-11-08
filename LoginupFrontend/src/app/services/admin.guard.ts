@@ -12,12 +12,14 @@ export class AdminGuard implements CanActivate {
 
   }
 /*
-los GUARDS son de alguna manera: middlewares que se ejecutan antes de cargar
+los GUARDS son de alguna manera: middlewares (agentes intermedios)
+que ofrece servicios y funciones comunes para las aplicaciones
+que se ejecutan antes de cargar
 una ruta y determinan si se puede cargar dicha ruta o no
 */
   canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    route: ActivatedRouteSnapshot,//Contiene la información sobre una ruta asociada a un componente
+    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {//Representa el estado del enrutador en un momento en el tiempo.
       //si esta conectado el usuario y es admin retorna true
     if(this.loginService.isLoggedIn() && this.loginService.getUserRole() == 'ADMIN'){
       return true;

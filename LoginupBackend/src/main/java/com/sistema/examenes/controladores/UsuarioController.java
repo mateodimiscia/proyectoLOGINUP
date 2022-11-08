@@ -6,7 +6,6 @@ import com.sistema.examenes.servicios.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -24,12 +23,10 @@ public class UsuarioController {
     //ya inyectado, crea la instancia del encriptado de password
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-
     @PostMapping("/")
     public Usuario guardarUsuario(@RequestBody Usuario usuario) throws Exception{
 //la anotación requestbody manda un objeto (usuario en este caso) con sus respectivos datos
 
-       
         usuario.setPassword(this.bCryptPasswordEncoder.encode(usuario.getPassword())); //la clave se encripta. Con el requestbody los recibe y al obtener el password se encripta.
         Set<UsuarioRol> usuarioRoles = new HashSet<>();
 
@@ -65,7 +62,6 @@ EJEMPLO: pasar por Postman metodo get con la siguiente ruta: http://localhost:80
         return usuarioService.obtenerUsuarios();
         //muestra la totalidad de usuarios existentes en la base de datos
     }
-
 
     //modifica mediate el id de cada usuario el estado, puede habilitarlos o deshabilitarlos.
     @PutMapping("/modificado/{usuarioId}")

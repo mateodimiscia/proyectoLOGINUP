@@ -15,7 +15,7 @@ export class NavbarComponent implements OnInit {
 
   constructor(public login:LoginService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { //si la sesión del usuario está activa, visualiza el nombre del mismo.
     this.isLoggedIn = this.login.isLoggedIn();
     this.user = this.login.getUser();
     this.login.loginStatusSubjec.asObservable().subscribe(

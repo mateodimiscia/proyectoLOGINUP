@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 public interface UsuarioService {
-// metodo que guard un usuario y se le pasan un conjunto de roles.
+// metodo que guarda un usuario y se le pasan un conjunto de roles.
     public Usuario guardarUsuario(Usuario usuario, Set<UsuarioRol> usuarioRoles) throws Exception;
 
     public Usuario obtenerUsuario(String username);
