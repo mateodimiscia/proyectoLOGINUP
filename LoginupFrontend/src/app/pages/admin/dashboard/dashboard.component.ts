@@ -48,9 +48,9 @@ export class DashboardComponent implements OnInit {
     Swal.fire({
       position: 'center',
       icon: 'success',
-      title: 'Se ha ' +habil+ ' su usuario correctamente',
+      title: 'El estado del usuario seleccionado es: ' +habil,
       showConfirmButton: false,
-      timer: 1500
+      timer: 2000
     })
   };
 

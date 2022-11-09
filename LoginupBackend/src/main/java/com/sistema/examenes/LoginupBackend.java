@@ -1,5 +1,4 @@
 package com.sistema.examenes;
-import com.excepciones.UsuarioFoundException;
 import com.sistema.examenes.modelo.Rol;
 import com.sistema.examenes.modelo.Usuario;
 import com.sistema.examenes.modelo.UsuarioRol;
@@ -31,12 +30,11 @@ public class LoginupBackend implements CommandLineRunner {
 @Autowired
 private BCryptPasswordEncoder bCryptPasswordEncoder;
 	@Override
-	public void run(String... args) throws Exception {
+	public void run(String... args) {
 		
 		/*
 		 A CONTINUACION USUARIO ADMINISTRADOR REGISTRADO MANUALMENTE AL SISTEMA.
 		 */
-		try {
 			Usuario usuario = new Usuario();
 			usuario.setNombre("LoginupAdmin");
 			usuario.setApellido("UTN");
@@ -52,15 +50,12 @@ private BCryptPasswordEncoder bCryptPasswordEncoder;
 			UsuarioRol usuarioRol = new UsuarioRol();
 			usuarioRol.setRol(rol);
 			usuarioRol.setUsuario(usuario);//se establece el objeto rol y usuario
-			usuariosRoles.add(usuarioRol);//UsuarioRoles es un conjunto de los dos objetos
-			
-			Usuario usuarioGuardado = usuarioService.guardarUsuario(usuario,usuariosRoles);
-			System.out.println(usuarioGuardado.getUsername());
-			
-			} catch (UsuarioFoundException exception) {
-				exception.printStackTrace();
-				//lanzara excepcion si el usuario ya existe en la bd
-			}
-		
+			usuariosRoles.add(usuarioRol);//UsuarioRoles es un conjunto de los dos objetos	
 	}
-}
+	}
+	
+			
+			
+		
+	
+

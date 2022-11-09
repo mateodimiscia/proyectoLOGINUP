@@ -7,7 +7,7 @@ package com.excepciones;
 public class UsuarioFoundException extends Exception {
     public UsuarioFoundException(){
      //este es el mensaje que se visualia en el login
-        super("El usuario con ese nombre de usuario ya está registrado en la base de datos.");
+        super("El nombre de usuario ya está registrado en la base de datos.");
     }
 //este es el mensaje por si se quiere pasar un mensaje personalizado.
     public UsuarioFoundException(String mensaje){
