@@ -48,7 +48,7 @@ export class DashboardComponent implements OnInit {
     Swal.fire({
       position: 'center',
       icon: 'success',
-      title: 'El estado del usuario seleccionado es: ' +habil,
+      title: 'El estado del usuario fue modificado a: ' +habil,
       showConfirmButton: false,
       timer: 2000
     })
