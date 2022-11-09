@@ -42,7 +42,6 @@ export class DashboardComponent implements OnInit {
       habil = "Habilitado";
     }
 
-
     this.UserServices.modificarDato(iduser,habil).subscribe();
     //muestra un pop-up que indica los cambios de la habilitacion/deshabilitacion del usuario
     Swal.fire({
@@ -50,7 +49,7 @@ export class DashboardComponent implements OnInit {
       icon: 'success',
       title: 'El estado del usuario fue modificado a: ' +habil,
       showConfirmButton: false,
-      timer: 2000
+      timer: 4000
     })
   };
 
