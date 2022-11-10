@@ -1,5 +1,4 @@
 package com.sistema.loginup.controladores;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
@@ -26,16 +25,8 @@ public class UsuarioController {
     @PostMapping("/")
     public Usuario guardarUsuario(@RequestBody Usuario usuario) throws Exception {
 
-        /*if (usuario.getUsername() == "" && usuario.getUsername() == null) {
-            return "El username está vacío";
-        } else {
-            // la anotación requestbody manda un objeto (usuario en este caso) con sus
-            // respectivos datos
-*/
-            usuario.setPassword(this.bCryptPasswordEncoder.encode(usuario.getPassword())); // la clave se encripta. Con
-                                                                                           // el requestbody los recibe
-                                                                                           // y al obtener el password
-                                                                                           // se encripta.
+            usuario.setPassword(this.bCryptPasswordEncoder.encode(usuario.getPassword()));
+            // la clave se encripta. Con el requestbody los recibe y al obtener el password se encripta.
             Set<UsuarioRol> usuarioRoles = new HashSet<>();
 
             Rol rol = new Rol();
@@ -49,8 +40,6 @@ public class UsuarioController {
             return usuarioService.guardarUsuario(usuario, usuarioRoles);
             
         }
-    
-
     /*
      * obtener datos de un usuario en particular
      * EJEMPLO: pasar por Postman metodo get con la siguiente ruta:
@@ -60,7 +49,6 @@ public class UsuarioController {
     public Usuario obtenerUsuario(@PathVariable("username") String username) {
         return usuarioService.obtenerUsuario(username);
     }
-
     // eliminar usuarios *NO UTILIZADA, sino que se va a utlizar una eliminación
     // lógica de usuarios que es inhabilitación de los mismos*
     /*
@@ -69,18 +57,15 @@ public class UsuarioController {
      * usuarioService.eliminarUsuario(usuarioId);
      * }
      */
-
     @GetMapping("/todos")
     public List<Usuario> obtenerUsuarios() {
         return usuarioService.obtenerUsuarios();
         // muestra la totalidad de usuarios existentes en la base de datos
     }
-
     // modifica mediate el id de cada usuario el estado, puede habilitarlos o
     // deshabilitarlos.
     @PutMapping("/modificado/{usuarioId}")
     public Usuario ModificarUsuario(@PathVariable("usuarioId") Long usuarioId) {
-
         return usuarioService.modificarUsuario(usuarioId);
     }
 }

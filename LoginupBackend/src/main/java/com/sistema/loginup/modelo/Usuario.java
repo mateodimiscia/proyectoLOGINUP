@@ -110,7 +110,7 @@ public class Usuario implements UserDetails {
     @Override
     /*
      * Clase que implementa para que pueda sobreescribir métodos tales como
-     * el de obtener autridad par pasarle el campo autority
+     * el de obtener autridad para pasarle el campo autority
      */
     public Collection<? extends GrantedAuthority> getAuthorities() {//método que obtiene los roles
         Set<Authority> autoridades = new HashSet<>();

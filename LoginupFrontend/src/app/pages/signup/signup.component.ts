@@ -19,10 +19,9 @@ export class SignupComponent implements OnInit {
     email : '',
     telefono : ''
   }
-//Implementa el método principal de Angular
   constructor(private userService:UserService,private snack:MatSnackBar) {
    }
-
+//Implementa el método principal de Angular
   ngOnInit(): void {
   }
 

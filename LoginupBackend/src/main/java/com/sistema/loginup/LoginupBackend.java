@@ -22,7 +22,7 @@ public class LoginupBackend implements CommandLineRunner {
 	 * Implementando a CommandLinerRunner para sobreescribir el método run
 	 */
 	@Autowired
-	private UsuarioService usuarioService;
+	//private UsuarioService usuarioService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(LoginupBackend.class, args);

@@ -9,7 +9,6 @@ import Swal from 'sweetalert2';
 })
 export class NavbarComponent implements OnInit {
 
-
   isLoggedIn = false;
   user:any = null;
 
