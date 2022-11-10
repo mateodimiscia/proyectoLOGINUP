@@ -1,8 +1,4 @@
-package com.sistema.examenes;
-import com.sistema.examenes.modelo.Rol;
-import com.sistema.examenes.modelo.Usuario;
-import com.sistema.examenes.modelo.UsuarioRol;
-import com.sistema.examenes.servicios.UsuarioService;
+package com.sistema.loginup;
 import java.util.HashSet;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +6,10 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import com.sistema.loginup.modelo.Rol;
+import com.sistema.loginup.modelo.Usuario;
+import com.sistema.loginup.modelo.UsuarioRol;
+import com.sistema.loginup.servicios.UsuarioService;
 /*
  * BCriypPasswordEncoder se utiliza para cifrar las credenciales de los usuarios al visualizarlas en la base de datos.
  *  pertenece a la clase BCryptPasswordEncoder de java.lang.Object

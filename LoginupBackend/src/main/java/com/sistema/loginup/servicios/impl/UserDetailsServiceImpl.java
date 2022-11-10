@@ -1,12 +1,13 @@
-package com.sistema.examenes.servicios.impl;
+package com.sistema.loginup.servicios.impl;
 
-import com.sistema.examenes.modelo.Usuario;
-import com.sistema.examenes.repositorios.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+
+import com.sistema.loginup.modelo.Usuario;
+import com.sistema.loginup.repositorios.UsuarioRepository;
 //SpringSecurity
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {

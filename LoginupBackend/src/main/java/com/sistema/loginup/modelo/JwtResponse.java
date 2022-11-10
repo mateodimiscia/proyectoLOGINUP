@@ -1,4 +1,4 @@
-package com.sistema.examenes.modelo;
+package com.sistema.loginup.modelo;
 import lombok.Setter;
 import lombok.Getter;
 //Constructor que contiene el token, que es retornado.

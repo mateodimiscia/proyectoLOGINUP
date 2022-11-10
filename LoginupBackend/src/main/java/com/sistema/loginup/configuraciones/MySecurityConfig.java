@@ -1,5 +1,4 @@
-package com.sistema.examenes.configuraciones;
-import com.sistema.examenes.servicios.impl.UserDetailsServiceImpl;
+package com.sistema.loginup.configuraciones;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,6 +12,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import com.sistema.loginup.servicios.impl.UserDetailsServiceImpl;
 
 
 //SE ENCARGA DE ENCRIPTAR LAS CONTRASEÑAS DE LOS USUARIOS
@@ -20,7 +20,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 //UNA CLASE DE CONFIGURACION REGISTRA BEANS
 @Configuration
-/*habilita la seguridad de nivel de método de Spring.
+/*
+habilita la seguridad de nivel de método de Spring.
 Esta anotación nos proporciona tres mecanismos diferentes, 
 prePostEnabled, secureEnabled y jsr250Enabled, para lograr la misma función.
 */
@@ -31,16 +32,12 @@ prePostEnabled, secureEnabled y jsr250Enabled, para lograr la misma función.
  */
 
 public class MySecurityConfig extends WebSecurityConfigurerAdapter {
-
     @Autowired
     private JwtAuthenticationEntryPoint unauthorizedHandler;
-
     @Autowired
     private UserDetailsServiceImpl userDetailsServiceImpl;
-
     @Autowired
     private JwtAuthenticationFilter jwtAuthenticationFilter;
-
     @Override
     @Bean
     public AuthenticationManager authenticationManagerBean() throws Exception {//

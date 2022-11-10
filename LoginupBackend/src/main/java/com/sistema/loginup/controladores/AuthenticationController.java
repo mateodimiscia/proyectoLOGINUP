@@ -1,10 +1,10 @@
-package com.sistema.examenes.controladores;
+package com.sistema.loginup.controladores;
 import com.excepciones.UsuarioNotFoundException;
-import com.sistema.examenes.configuraciones.JwtUtils;
-import com.sistema.examenes.modelo.JwtRequest;
-import com.sistema.examenes.modelo.JwtResponse;
-import com.sistema.examenes.modelo.Usuario;
-import com.sistema.examenes.servicios.impl.UserDetailsServiceImpl;
+import com.sistema.loginup.configuraciones.JwtUtils;
+import com.sistema.loginup.modelo.JwtRequest;
+import com.sistema.loginup.modelo.JwtResponse;
+import com.sistema.loginup.modelo.Usuario;
+import com.sistema.loginup.servicios.impl.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -32,17 +32,11 @@ public class AuthenticationController {
     private JwtUtils jwtUtils;
     @PostMapping("/generate-token")
     public ResponseEntity<?> generarToken(@RequestBody JwtRequest jwtRequest) throws Exception {
-        try{
             /*
             el metodo autenticar se le envia un username y un password.
             tanto ese username y contraseña sean correctos para generar el token
             */
             autenticar(jwtRequest.getUsername(),jwtRequest.getPassword());
-        }catch (UsuarioNotFoundException exception){
-            //se utiliza la excepcion creada en la carpeta excepciones
-            exception.printStackTrace();
-            throw new Exception("Usuario no encontrado");
-        }
 
         UserDetails userDetails =  this.userDetailsService.loadUserByUsername(jwtRequest.getUsername());
         //generar token pasando los datos del usuario.
@@ -56,17 +50,10 @@ public class AuthenticationController {
     }
 
     private void autenticar(String username,String password) throws Exception {
-        try{
             //se pasa un username y contraseña 
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username,password));
-        }catch (DisabledException exception){
-            throw  new Exception("USUARIO DESHABILITADO " + exception.getMessage());
-        }catch (BadCredentialsException e){
-            //credenciales incorrectas
-            throw  new Exception("Credenciales invalidas " + e.getMessage());
         }
-    }
-
+    
 //devuelve al actual usuario que acaba de iniciar sesion 
     @GetMapping("/actual-usuario")
     public Usuario obtenerUsuarioActual(Principal principal){

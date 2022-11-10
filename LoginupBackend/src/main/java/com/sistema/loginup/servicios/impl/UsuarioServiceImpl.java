@@ -1,10 +1,11 @@
-package com.sistema.examenes.servicios.impl;
+package com.sistema.loginup.servicios.impl;
 import com.excepciones.UsuarioFoundException;
-import com.sistema.examenes.modelo.Usuario;
-import com.sistema.examenes.modelo.UsuarioRol;
-import com.sistema.examenes.repositorios.RolRepository;
-import com.sistema.examenes.repositorios.UsuarioRepository;
-import com.sistema.examenes.servicios.UsuarioService;
+import com.sistema.loginup.modelo.Usuario;
+import com.sistema.loginup.modelo.UsuarioRol;
+import com.sistema.loginup.repositorios.RolRepository;
+import com.sistema.loginup.repositorios.UsuarioRepository;
+import com.sistema.loginup.servicios.UsuarioService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;

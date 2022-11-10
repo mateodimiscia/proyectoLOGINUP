@@ -1,6 +1,7 @@
-package com.sistema.examenes.repositorios;
-import com.sistema.examenes.modelo.Usuario;
+package com.sistema.loginup.repositorios;
 import org.springframework.data.repository.CrudRepository;
+
+import com.sistema.loginup.modelo.Usuario;
 
 public interface UsuarioRepository extends CrudRepository<Usuario,Long> {
 

@@ -1,7 +1,8 @@
-package com.sistema.examenes.repositorios;
+package com.sistema.loginup.repositorios;
 
-import com.sistema.examenes.modelo.Rol;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.sistema.loginup.modelo.Rol;
 
 public interface RolRepository extends JpaRepository<Rol,Long> {
 }
